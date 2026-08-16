@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="BMBAssessment/BMBAssessment.csproj" />
+  <Project Path="BMBAssessment/BMBAssessment.API.csproj" />
+  <Project Path="BMBAssessment.Application/BMBAssessment.Application.csproj" />
+  <Project Path="BMBAssessment.Domain/BMBAssessment.Domain.csproj" />
+  <Project Path="BMBAssessment.Infrastructure/BMBAssessment.Infrastructure.csproj" />
 </Solution>

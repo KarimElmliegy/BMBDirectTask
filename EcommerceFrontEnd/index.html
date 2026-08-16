@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b3b35">
+  <title>Phone Orders | Your mobile workspace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#home" data-app-page="home" aria-label="Phone Orders home">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span class="brand-copy">Phone Orders<small>Mobile workspace</small></span>
+      </a>
+      <div id="session-actions" class="session-actions">
+         <nav id="app-navigation" class="app-navigation" aria-label="Application navigation" hidden>
+           <a id="home-link" class="orders-link" href="#home" data-app-page="home" hidden>Home</a>
+           <a id="my-orders-link" class="orders-link" href="#my-orders" data-app-page="orders" hidden>My orders</a>
+        </nav>
+        <span id="welcome-name" class="welcome-name"></span>
+        <button id="login-button" class="button button-primary" type="button">Log in</button>
+        <button id="logout-button" class="button button-secondary" type="button" hidden>Log out</button>
+      </div>
+    </header>
+
+    <section id="message" class="message" role="alert" aria-live="assertive" hidden></section>
+
+    <section id="delete-modal" class="modal-backdrop" role="presentation" hidden>
+      <div class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title" aria-describedby="delete-modal-description">
+        <p class="eyebrow">Please confirm</p>
+        <h2 id="delete-modal-title">Delete this order?</h2>
+        <p id="delete-modal-description">This order will be removed from your active order list.</p>
+        <div class="modal-actions">
+          <button id="cancel-delete-button" class="button button-secondary" type="button">Keep order</button>
+          <button id="confirm-delete-button" class="button button-danger" type="button">Delete order</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="auth-view" class="auth-layout" hidden>
+      <div class="auth-intro">
+         <p class="eyebrow">A smarter way to order</p>
+         <h1>Your next phone, configured your way.</h1>
+         <p>Compare colors, memory, and storage, then manage every order from one simple workspace.</p>
+         <div class="feature-list" aria-label="Store benefits">
+           <span>Curated devices</span>
+           <span>Flexible variants</span>
+           <span>Simple order tracking</span>
+         </div>
+      </div>
+      <div class="auth-panel">
+        <div class="tabs" role="tablist">
+          <button class="tab is-active" type="button" data-auth-tab="login">Log in</button>
+          <button class="tab" type="button" data-auth-tab="register">Register</button>
+        </div>
+        <form id="login-form" class="auth-form">
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+          <button class="button button-primary" type="submit">Log in</button>
+        </form>
+        <form id="register-form" class="auth-form" hidden>
+          <label>Name<input name="name" type="text" autocomplete="name" maxlength="100" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required></label>
+          <button class="button button-primary" type="submit">Create account</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="app-view">
+      <section id="home-page">
+      <div class="workspace-heading">
+        <div>
+          <p class="eyebrow">Catalog</p>
+          <h1>Build an order</h1>
+        </div>
+        <button id="refresh-button" class="icon-button" type="button" title="Refresh products and orders" aria-label="Refresh products and orders">↻</button>
+      </div>
+
+      <div class="workspace-grid">
+         <aside id="order-builder" class="order-builder" aria-labelledby="order-title">
+           <div class="section-heading"><div><p class="section-kicker">Your selection</p><h2 id="order-title">New order</h2></div><span class="cart-badge" id="cart-count">0</span></div>
+          <form id="order-form">
+            <label>Order description<input id="order-description" type="text" maxlength="1000" placeholder="e.g. Office phones" required></label>
+            <div id="cart-list" class="cart-list"></div>
+            <div class="order-total"><span>Total</span><strong id="cart-total">$0.00</strong></div>
+            <button id="create-order-button" class="button button-primary" type="submit">Create order</button>
+          </form>
+        </aside>
+
+        <section class="catalog-section" aria-labelledby="catalog-title">
+           <div class="section-heading"><div><p class="section-kicker">Pick a favorite</p><h2 id="catalog-title">Available phones</h2></div></div>
+          <div class="products-carousel"><div id="products-list" class="products-list"></div></div>
+          <div class="carousel-controls" aria-label="Product carousel controls"><button id="products-previous" class="carousel-button" type="button" aria-label="Previous products">‹</button><div id="products-pagination" class="carousel-pagination"></div><button id="products-next" class="carousel-button" type="button" aria-label="Next products">›</button></div>
+        </section>
+      </div>
+      </section>
+
+      <section id="my-orders" class="orders-section" aria-labelledby="orders-title" hidden>
+         <div class="orders-heading"><div><p class="eyebrow">Order history</p><h1 id="orders-title">Your orders</h1><p>Review your active orders and their configured devices.</p></div></div>
+        <div id="orders-list" class="orders-list"></div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
